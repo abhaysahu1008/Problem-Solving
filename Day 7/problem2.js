@@ -1,12 +1,17 @@
 const firstNonRepeatingChar = function (str) {
+  if (!str) return null;
+
   let freq = {};
-  for (let i = 0; i < str.length; i++) {
-    freq[str[i]] = (freq[str[i]] || 0) + 1;
+
+  for (let char of str) {
+    freq[char] = (freq[char] || 0) + 1;
   }
 
-  for (let i = 0; i < str.length; i++) {
-    if (freq[str[i]] === 1) return str[i];
+  for (let char of str) {
+    if (freq[char] === 1) return char;
   }
+
+  return null;
 };
 
 console.log(firstNonRepeatingChar("aabbcddeff"));
