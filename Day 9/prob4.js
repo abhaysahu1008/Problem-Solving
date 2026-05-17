@@ -15,8 +15,15 @@ function CompressString(str) {
   }
 
   for (let i = 0; i < str.length; i++) {
-    newStr += str[i] + freq[str[i]];
+    if (freq[str[i]] !== 0) {
+      newStr += str[i] + freq[str[i]];
+    }
+    if (freq[str[i]] !== 1) {
+      freq[str[i]] = 0;
+    }
   }
+
+  console.log(newStr);
 }
 
 CompressString("aaabbccccd");
